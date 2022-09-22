@@ -35,7 +35,10 @@
             this.PassResult = new System.Windows.Forms.TextBox();
             this.Special1 = new System.Windows.Forms.CheckBox();
             this.Special2 = new System.Windows.Forms.CheckBox();
+            this.BulkGenAmount = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PassLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BulkGenAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +52,7 @@
             // 
             // Gen2File
             // 
-            this.Gen2File.Location = new System.Drawing.Point(0, 105);
+            this.Gen2File.Location = new System.Drawing.Point(0, 118);
             this.Gen2File.Name = "Gen2File";
             this.Gen2File.Size = new System.Drawing.Size(239, 32);
             this.Gen2File.TabIndex = 9;
@@ -116,11 +119,44 @@
             this.Special2.Text = "Diatrics";
             this.Special2.UseVisualStyleBackColor = true;
             // 
+            // BulkGenAmount
+            // 
+            this.BulkGenAmount.Location = new System.Drawing.Point(203, 83);
+            this.BulkGenAmount.Maximum = new decimal(new int[] {
+            1321730048,
+            465661287,
+            0,
+            0});
+            this.BulkGenAmount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.BulkGenAmount.Name = "BulkGenAmount";
+            this.BulkGenAmount.Size = new System.Drawing.Size(38, 20);
+            this.BulkGenAmount.TabIndex = 14;
+            this.BulkGenAmount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(75, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Generate times (file only)";
+            // 
             // PasswordGen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(242, 251);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BulkGenAmount);
             this.Controls.Add(this.Special2);
             this.Controls.Add(this.Special1);
             this.Controls.Add(this.label1);
@@ -133,6 +169,7 @@
             this.Name = "PasswordGen";
             this.Text = "Password Generator";
             ((System.ComponentModel.ISupportInitialize)(this.PassLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BulkGenAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,6 +184,8 @@
         private System.Windows.Forms.TextBox PassResult;
         private System.Windows.Forms.CheckBox Special1;
         private System.Windows.Forms.CheckBox Special2;
+        private System.Windows.Forms.NumericUpDown BulkGenAmount;
+        private System.Windows.Forms.Label label2;
     }
 }
 

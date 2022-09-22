@@ -16,6 +16,7 @@ namespace Simple_Password_Generator
         const string charsNormal = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
         const string charsSpecial = "`~-=_+!@#$€%^&*()[]{}:;\"',.<>/?\\|¬£";
         const string charsSpecial2 = "ëËăēīčŵâùẁỳ";
+        string Output = "";
         public PasswordGen()
         {
             InitializeComponent();
@@ -29,9 +30,10 @@ namespace Simple_Password_Generator
         void Generate()
         {
             System.Random ran = new System.Random();
-            string Output = "";
-            string ToPickFrom = charsNormal;
             
+            string ToPickFrom = charsNormal;
+            Output = "";
+
             if(Special1.Checked) { ToPickFrom = ToPickFrom + charsSpecial; }
             if(Special2.Checked) { ToPickFrom = ToPickFrom + charsSpecial2; }
 
@@ -44,7 +46,18 @@ namespace Simple_Password_Generator
 
         private void Gen2File_Click(object sender, EventArgs e)
         {
-            Generate();
+            string previous = "";
+            string ToWrite = "";
+            for (int i = 0; i < Int32.Parse(BulkGenAmount.Value.ToString());) {
+                Generate();
+                if (Output != previous)
+                {
+                    ToWrite = ToWrite + Output + "\n";
+                    i++;
+                }
+                previous = Output;                
+                System.Threading.Thread.Sleep(1);
+            }
             SaveFileDialog SaveDialog = new SaveFileDialog();
             SaveDialog.InitialDirectory = @"Documents";
             SaveDialog.RestoreDirectory = true;
@@ -56,7 +69,7 @@ namespace Simple_Password_Generator
                 Stream filestream = SaveDialog.OpenFile();
                 StreamWriter sw = new StreamWriter(filestream);
 
-                sw.Write(PassResult.Text);
+                sw.Write(ToWrite);
                 sw.Close();
                 filestream.Close();
             }
